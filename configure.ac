@@ -1,5 +1,5 @@
 AC_PREREQ([2.69])
-AC_INIT([libx1000], [0.0.1], [ray.kinsella@intel.com])
+AC_INIT([libx1000], [0.1.0])
 AC_CONFIG_SRCDIR([src/x1000_ldpreload.c])
 AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([m4])
@@ -9,13 +9,15 @@ AM_INIT_AUTOMAKE
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_CC_C99
+
 AX_CFLAGS_WARN_ALL
 AX_CXXFLAGS_WARN_ALL
 AX_APPEND_FLAG([-D_GNU_SOURCE])
-AX_APPEND_FLAG([-Ofast])
+AX_APPEND_FLAG([-O2])
 AX_APPEND_FLAG([-g0])
 AX_APPEND_FLAG([-march=pentium])
 AX_APPEND_FLAG([-mtune=i486])
+AX_APPEND_FLAG([-Wa,-momit-lock-prefix=yes])
 AX_APPEND_LINK_FLAGS([-ldl -Wl,--as-needed])
 AM_PROG_CC_C_O
 AC_PROG_INSTALL
