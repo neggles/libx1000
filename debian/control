@@ -1,12 +1,12 @@
 Source: libx1000
 Section: unknown
 Priority: optional
-Maintainer: Alexander M. Albertian <assa@4ip.ru>
+Maintainer: Andi Powers-Holmes <aholmes@omnom.net>
 Build-Depends: debhelper (>= 9), autotools-dev
 Standards-Version: 3.9.5
-Homepage: https://github.com/assa77/libx1000
-Vcs-Git: https://github.com/assa77/libx1000.git
-Vcs-Browser: https://github.com/assa77/libx1000
+Homepage: https://github.com/neggles/libx1000
+Vcs-Git: https://github.com/neggles/libx1000.git
+Vcs-Browser: https://github.com/neggles/libx1000
 
 Package: libx1000
 Architecture: any

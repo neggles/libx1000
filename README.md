@@ -2,7 +2,7 @@
 
 This repository contains reworked **libx1000**, that fixes the LOCK prefix segfault on *Intel Quark X1000*.
 
-This version of **[libx1000](https://github.com/assa77/libx1000)** was developed by *[Alexander M. Albertian](mailto:assa@4ip.ru)*.
+This version of **[libx1000](https://github.com/assa77/libx1000)** was developed by *[Alexander M. Albertian](mailto:assa@4ip.ru)* and reworked by *[Andi Powers-Holmes](mailto:aholmes@omnom.net)* for use with AOSC OS/Retro.
 
 Original **libx1000** was developed in 2015 by *[Ray Kinsella](mailto:ray.kinsella@intel.com)*.
 
