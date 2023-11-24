@@ -45,8 +45,7 @@ static lmmap64_t lmmap64  = NULL;
  * data segements and heap into memory.
  */
 
-static void x1000_memlock(unsigned memlock)
-{
+static void x1000_memlock(unsigned memlock) {
     struct dseg *next = NULL;
 
     if (get_mlayout(&next))
@@ -59,8 +58,7 @@ static void x1000_memlock(unsigned memlock)
     }
 }
 
-__attribute__((constructor)) static void libx1000_ldpreload_init()
-{
+__attribute__((constructor)) static void libx1000_init() {
     memlock = exechook = 0;
 
     lfork   = (lfork_t)dlsym(RTLD_NEXT, "fork");
@@ -74,8 +72,7 @@ __attribute__((constructor)) static void libx1000_ldpreload_init()
         x1000_memlock(memlock);
 }
 
-void *mremap(void *start, size_t old_len, size_t len, int flags, ...)
-{
+void *mremap(void *start, size_t old_len, size_t len, int flags, ...) {
     va_list ap;
     va_start(ap, flags);
     void *newaddr = flags & MREMAP_FIXED ? va_arg(ap, void *) : NULL;
@@ -88,8 +85,7 @@ void *mremap(void *start, size_t old_len, size_t len, int flags, ...)
     return lmremap(start, old_len, len, flags, newaddr);
 }
 
-void *mmap64(void *addr, size_t length, int prot, int flags, int fd, __off64_t offset)
-{
+void *mmap64(void *addr, size_t length, int prot, int flags, int fd, __off64_t offset) {
     if (exechook & TO_BITMASK(X1000_EXECHOOK_MMAP) && memlock & TO_BITMASK(X1000_LOCKMEM_MMAP)) {
         flags |= MAP_POPULATE;
     }
@@ -97,8 +93,7 @@ void *mmap64(void *addr, size_t length, int prot, int flags, int fd, __off64_t o
     return lmmap64(addr, length, prot, flags, fd, offset);
 }
 
-void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
-{
+void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset) {
     if (exechook & TO_BITMASK(X1000_EXECHOOK_MMAP) && memlock & TO_BITMASK(X1000_LOCKMEM_MMAP)) {
         flags |= MAP_POPULATE;
     }
@@ -106,8 +101,7 @@ void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset)
     return lmmap(addr, length, prot, flags, fd, offset);
 }
 
-pid_t fork(void)
-{
+pid_t fork(void) {
     pid_t retval = lfork();
 
     if (exechook & TO_BITMASK(X1000_EXECHOOK_FORK))

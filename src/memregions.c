@@ -14,8 +14,7 @@ static struct dseg *pself_layout = NULL;
 
 static int read_mapping(FILE *mapfile, long long unsigned *addr, long long unsigned *endaddr,
                         char *permissions, long long unsigned *offset, char *device,
-                        long long unsigned *inode, char *filename)
-{
+                        long long unsigned *inode, char *filename) {
     char fmap[PATH_MAX + 20];
     int  ret;
 
@@ -25,15 +24,15 @@ static int read_mapping(FILE *mapfile, long long unsigned *addr, long long unsig
     *addr = *endaddr = *offset = *inode = 0;
     *permissions = *device = *filename = '\0';
 
-    if ((ret = sscanf(fmap, "%llx-%llx %s %llx %s %llx %s", addr, endaddr, permissions, offset, device, inode,
-                      filename)) == EOF)
+    ret = sscanf(fmap, "%llx-%llx %s %llx %s %llx %s", addr, endaddr, permissions, offset, device, inode,
+                 filename);
+    if (ret == EOF)
         return -1;
 
     return ret;
 }
 
-static int free_self_layout()
-{
+static int free_self_layout() {
     struct dseg *pnext, *tmp;
 
     for (pnext = pself_layout; pnext; pnext = tmp) {
@@ -45,14 +44,12 @@ static int free_self_layout()
     return 0;
 }
 
-__attribute__((destructor)) static void _free_self_layout()
-{
+__attribute__((destructor)) static void _free_self_layout() {
     /* for neatness sake, free memory on unload. */
     free_self_layout();
 }
 
-static int init_self_layout()
-{
+static int init_self_layout() {
     FILE              *f = 0;
     long long unsigned addr, endaddr, offset, inode;
     char               permissions[10];
@@ -95,8 +92,7 @@ static int init_self_layout()
     return 0;
 }
 
-int get_mlayout(struct dseg **playout)
-{
+int get_mlayout(struct dseg **playout) {
     /* free previous queries. */
     if (pself_layout)
         free_self_layout();

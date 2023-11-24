@@ -41,8 +41,7 @@ static const struct _configsection sections[X1000_SECTION_MAX] = {
 
 static const char *pconfigdirs[] = { "/etc/libx1000.so.d/", "/proc/self/cwd/", NULL };
 
-static FILE *open_config_file()
-{
+static FILE *open_config_file() {
     char   linkat[PATH_MAX];
     char   configname[PATH_MAX];
     char  *pfilename[3] = { NULL, "defaults", NULL };
@@ -67,8 +66,7 @@ static FILE *open_config_file()
     return NULL;
 }
 
-static size_t find_section(const char *psection)
-{
+static size_t find_section(const char *psection) {
     size_t i;
 
     for (i = 0; i < X1000_SECTION_MAX; ++i)
@@ -77,8 +75,7 @@ static size_t find_section(const char *psection)
     return i;
 }
 
-static unsigned parse_tokens(size_t section, char *pconfig_tokens)
-{
+static unsigned parse_tokens(size_t section, char *pconfig_tokens) {
     char                      *pstoken;
     const struct _configtoken *ptokens = sections[section].ptokens, *p;
     unsigned                   bitmask = 0;
@@ -95,8 +92,7 @@ static unsigned parse_tokens(size_t section, char *pconfig_tokens)
     return bitmask;
 }
 
-int get_config(unsigned *plockmem, unsigned *pphase)
-{
+int get_config(unsigned *plockmem, unsigned *pphase) {
     char      buffer[PATH_MAX];
     char     *psection, *ptokens;
     size_t    section_index;

@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdio.h>
-#include "x1000_memregions.h"
+#include "memregions.h"
 
 #define TO_UINT32( __x )	( ( uint32_t )( __x ) )
 
