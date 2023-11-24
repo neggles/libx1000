@@ -205,10 +205,14 @@ dkms.conf
 # Generated (other)
 /INSTALL
 /libtool
+/compile_commands.json
 
 # direnv
 /.envrc*
 !/.envrc.example
+
+# clangd
+/.cache
 
 # misc and temp
 /misc/
