@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - -Wa,-momit-lock-prefix=yes
+    - -D_GNU_SOURCE
+  # Remove:
+  Compiler: i586-buildroot-linux-gnu-gcc
+  CompilationDatabase: Ancestors

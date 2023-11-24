@@ -149,6 +149,17 @@ m4/lt~obsolete.m4
 # (which is called by configure script))
 Makefile
 
+# Generated (other)
+/INSTALL
+src/config.h.in
+
 # direnv
 /.envrc*
 !/.envrc.example
+
+# misc and temp
+/misc/
+/temp/
+
+# build dir
+/build/
