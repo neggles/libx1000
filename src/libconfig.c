@@ -1,4 +1,4 @@
-#include "x1000_config.h"
+#include "libconfig.h"
 
 #include <libgen.h>
 #include <linux/limits.h>

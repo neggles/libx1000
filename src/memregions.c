@@ -1,6 +1,6 @@
-#include "x1000_memregions.h"
+#include "memregions.h"
 
-#include "x1000_config.h"
+#include "libconfig.h"
 
 #include <linux/limits.h>
 #include <stdint.h>

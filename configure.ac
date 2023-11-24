@@ -1,6 +1,6 @@
 AC_PREREQ([2.69])
 AC_INIT([libx1000], [0.1.0])
-AC_CONFIG_SRCDIR([src/x1000_ldpreload.c])
+AC_CONFIG_SRCDIR([src/libx1000.c])
 AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([src/config.h])

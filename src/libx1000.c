@@ -9,8 +9,8 @@
  *
  */
 
-#include "x1000_config.h"
-#include "x1000_memregions.h"
+#include "libconfig.h"
+#include "memregions.h"
 
 #include <dlfcn.h>
 #include <stdarg.h>
